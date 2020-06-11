@@ -8,6 +8,7 @@ const Formulario = () => {
     hora: "",
     sintomas: "",
   });
+  const [error, actualizarError] = useState(false);
 
   // Función que se ejecuta cada que el usuario escribe
   const actualizarState = (e) => {
@@ -20,6 +21,25 @@ const Formulario = () => {
 
   //   Extraer los valores para no escribir cita.nombre
   const { mascota, propietario, fecha, hora, sintomas } = cita;
+
+  const submitCita = (e) => {
+    e.preventDefault();
+    // Validar
+    if (
+      mascota.trim() === "" ||
+      propietario.trim() === "" ||
+      fecha.trim() === "" ||
+      hora.trim() === "" ||
+      sintomas.trim() === ""
+    ) {
+      console.log("Hay un error");
+      return;
+    }
+
+    // Asignar un ID
+    // Crear cita
+    // Reiniciar el Form
+  };
 
   return (
     <Fragment>
