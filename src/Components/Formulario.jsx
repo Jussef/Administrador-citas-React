@@ -22,7 +22,7 @@ const Formulario = () => {
   //   Extraer los valores para no escribir cita.nombre
   const { mascota, propietario, fecha, hora, sintomas } = cita;
 
-  const submitCita = (e) => {
+  const submitCita = e => {
     e.preventDefault();
     // Validar
     if (
@@ -33,6 +33,7 @@ const Formulario = () => {
       sintomas.trim() === ""
     ) {
       console.log("Hay un error");
+      actualizarError(true);
       return;
     }
 
@@ -45,7 +46,9 @@ const Formulario = () => {
     <Fragment>
       <h2>Crear Cita</h2>
 
-      <form>
+      {error ? <p className="alerta-error">Todos los campos son obligatorios</p> : null}
+
+      <form onSubmit={submitCita}>
         <label htmlFor="mascota">Nombre Mascota</label>
         <input
           type="text"
