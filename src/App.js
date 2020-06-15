@@ -11,7 +11,14 @@ function App() {
     guardarCitas([...citas, cita]);
   };
 
-  // Extraer o Destructuring
+  // Funcion que elimina las citas con un filter y regresa los que no son ese mismo id
+  const eliminarCitas = (id) => {
+    const nuevasCitas = citas.filter((cita) => cita.id !== id);
+    guardarCitas(nuevasCitas);
+  };
+
+  // Mensaje condicional
+  const titulo = citas.length > 0 ? "Administra tus citas" : "No hay citas";
 
   return (
     <Fragment>
@@ -22,12 +29,9 @@ function App() {
             <Formulario crearCita={crearCita} />
           </div>
           <div className="one-half column">
-            <h2>Administra tus citas</h2>
+            <h2>{titulo}</h2>
             {citas.map((cita) => (
-              <Cita
-              key={cita.id}
-              cita={cita}
-              />
+              <Cita key={cita.id} cita={cita} eliminarCitas={eliminarCitas} />
             ))}
           </div>
         </div>

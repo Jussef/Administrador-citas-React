@@ -37,12 +37,12 @@ const Formulario = ({ crearCita }) => {
       actualizarError(true);
       return;
     }
-
+    
     // Eliminar el mensaje previo
     actualizarError(false);
 
     // Asignar un ID
-    cita.id = uuid.v4();
+    cita.id = uuid();
 
     // Crear cita, donde crearCita es una funcion que viene de App por props y cita se manda desde aqui
     crearCita(cita);
