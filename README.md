@@ -5,3 +5,5 @@ Este proyecto fue creado en ReactJS
 ## Liga del proyecto 📦:
 
 https://admin-de-veterinaria.netlify.app/
+
+Se le agrega el "homepage": "./", a el package.json
